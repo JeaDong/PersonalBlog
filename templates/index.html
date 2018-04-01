@@ -1,19 +1,16 @@
-{% extends "bootstrap/base.html" %}
+{% extends "base.html" %}
 {% import "bootstrap/wtf.html" as wtf %}
 
-{% block title %}This is an example page{% endblock %}
+{% block title %}Flasky{% endblock %}
 
-{% block navbar %}
-    <ul class="nav nav-list">
-      <li class="active">
-        <a href="#">首页</a>
-      </li>
-      <li><a href="#">111</a></li>
-      <li class="disabled"><a href="#">首页</a></li>
-    </ul>
-{% endblock %}
-
-{% block content %}
-<h1 class="page-header">友人？, {% if name %}{{ name }}{% else %}非友人{% endif %}!</h1>
-  {{ wtf.quick_form(form) }}
+{% block page_content %}
+<div class="page-header">
+    <h1>Hello, {% if name %}{{ name }}{% else %}Stranger{% endif %}!</h1>
+    {% if not known %}
+    <p>Pleased to meet you!</p>
+    {% else %}
+    <p>Happy to see you again!</p>
+    {% endif %}
+</div>
+{{ wtf.quick_form(form) }}
 {% endblock %}
